@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portafolio académico de Kevin Zamorano, estudiante de la Universidad Tecnológica de Panamá, interesado en ciberseguridad, redes y programación." />
+  <meta name="theme-color" content="#0b1220" />
+  <title>Kevin Zamorano | Portafolio digital</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #090f1b;
+      --panel: #101c2e;
+      --panel2: #132237;
+      --stroke: #26394d;
+      --text: #e6edf6;
+      --muted: #9aaec2;
+      --accent: #53e0bf;
+      --accent2: #7ea9ff;
+      --shadow: 0 25px 70px rgba(0,0,0,.26);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+    body:before { content:""; pointer-events:none; position:absolute; inset:0 0 auto; height:750px; background:radial-gradient(ellipse at 65% 5%, rgba(42,131,159,.16), transparent 55%),radial-gradient(ellipse at 4% 25%, rgba(105,134,243,.11),transparent 55%); z-index:-1; }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible, button:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }
+    button { font:inherit; }
+    .wrap { width:min(1080px, calc(100% - 44px)); margin:auto; }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding:25px 0; gap:18px; }
+    .brand { font-size:18px; font-weight:800; letter-spacing:-.05em; }
+    .brand span { color:var(--accent); }
+    .links { display:flex; align-items:center; flex-wrap:wrap; gap:28px; font-size:14px; color:var(--muted); }
+    .links a:hover { color:var(--accent); }
+    .hero { display:grid; grid-template-columns: 1.2fr .8fr; gap:68px; align-items:center; min-height:550px; padding:64px 0 80px; }
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; font-size:13px; color:var(--accent); background:rgba(83,224,191,.08); border:1px solid rgba(83,224,191,.23); border-radius:99px; padding:6px 13px; font-weight:650; }
+    .dot { width:7px; height:7px; background:var(--accent); border-radius:50%; box-shadow:0 0 12px var(--accent); }
+    h1 { font-size:clamp(49px,6vw,75px); line-height:1.07; letter-spacing:-.075em; margin:24px 0 18px; }
+    .gradient { background:linear-gradient(100deg,var(--accent),#76b2ff); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .lead { color:var(--muted); max-width:570px; font-size:18px; margin:0 0 28px; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:9px; border-radius:11px; font-size:14px; font-weight:730; padding:12px 20px; transition:transform .2s,background .2s; }
+    .btn:hover { transform:translateY(-2px); }
+    .btn.primary { color:#051b17; background:var(--accent); }
+    .btn.secondary { border:1px solid var(--stroke); background:rgba(255,255,255,.02); }
+    .terminal { border:1px solid #355169; border-radius:17px; background:#0e1929; box-shadow:var(--shadow); overflow:hidden; transform:rotate(1.5deg); }
+    .terminal-head { display:flex; align-items:center; gap:7px; background:#17263a; padding:13px 18px; border-bottom:1px solid #294055; }
+    .terminal-head i { width:10px; height:10px; display:block; border-radius:50%; background:#ff726e; }
+    .terminal-head i:nth-child(2){background:#ffc266}.terminal-head i:nth-child(3){background:#68dc90}
+    .terminal-head span { flex:1; text-align:center; font-size:11px; color:#9bacbd; margin-right:44px; }
+    .terminal-body { padding:28px 25px; min-height:245px; font:13px/1.95 ui-monospace,SFMono-Regular,Consolas,monospace; color:#d0dbe5; }
+    .terminal-body .cmd {color:var(--accent)}
+    .terminal-body .key {color:#8eb2ff}
+    .terminal-body .comment {color:#8da2b4}
+    section { padding:55px 0 32px; scroll-margin-top:30px; }
+    .kicker { color:var(--accent); text-transform:uppercase; font-weight:760; font-size:12px; letter-spacing:.14em; }
+    h2 { font-size:clamp(29px,3.5vw,39px); letter-spacing:-.055em; line-height:1.15; margin:10px 0 18px; }
+    .intro { font-size:16px; max-width:760px; color:var(--muted); margin-bottom:25px; }
+    .about { display:grid; grid-template-columns:1.15fr .85fr; gap:30px; }
+    .card { border:1px solid var(--stroke); background:linear-gradient(165deg,rgba(28,46,68,.75),rgba(14,26,42,.83)); padding:27px; border-radius:16px; }
+    .card p { color:var(--muted); margin:10px 0 0; }
+    .card h3 { font-size:18px; margin:0; letter-spacing:-.03em; }
+    .facts { display:grid; align-content:center; gap:15px; }
+    .fact { display:flex; gap:14px; align-items:flex-start; }
+    .fact-icon { flex:0 0 40px; width:40px; height:40px; background:rgba(83,224,191,.09); border-radius:10px; display:grid; place-items:center; color:var(--accent); font-size:20px; }
+    .fact b { display:block; font-size:14px; }
+    .fact small { color:var(--muted); font-size:13px; }
+    .stack { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; }
+    .stack .icon { font-size:26px; margin-bottom:13px; display:block; }
+    .stack p { font-size:14px; }
+    .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+    .tags span { padding:5px 9px; border:1px solid #34475d; border-radius:7px; font-size:12px; color:#bed0dd; }
+    .projects { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; }
+    .project-num {font:12px ui-monospace,monospace;color:var(--accent);margin-bottom:12px;}
+    .project-type {display:inline-block;margin-top:18px;font-size:12px;color:var(--accent2);font-weight:650;}
+    .callout { margin-top:25px; display:flex; justify-content:space-between; align-items:center; gap:20px; border:1px solid rgba(83,224,191,.25); border-radius:16px; background:rgba(83,224,191,.065); padding:28px; }
+    .callout h3 { margin:0 0 6px; font-size:22px; letter-spacing:-.035em; }
+    .callout p { margin:0; color:var(--muted); }
+    footer { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:45px 0 35px; margin-top:55px; border-top:1px solid var(--stroke); color:var(--muted); font-size:13px; }
+    .footer-name { color:var(--text); font-weight:760; }
+    @media (max-width:860px) { .hero{grid-template-columns:1fr;gap:22px;padding:55px 0 45px} .terminal{transform:none;max-width:570px} .about{grid-template-columns:1fr} .stack,.projects{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:580px) { .wrap{width:min(100% - 32px,1080px)} .nav{padding:20px 0;align-items:flex-start;flex-direction:column;gap:13px} .links{gap:18px;font-size:13px} .hero{padding-top:42px} .lead{font-size:16px} .stack,.projects{grid-template-columns:1fr} .card{padding:23px} section{padding-top:47px} .callout{align-items:flex-start;flex-direction:column} footer{flex-direction:column;align-items:flex-start} }
+    @media (prefers-reduced-motion:reduce) {html{scroll-behavior:auto}.btn{transition:none}}
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <nav class="nav" aria-label="Navegación principal">
+      <a class="brand" href="#inicio">KZ<span>.</span>dev</a>
+      <div class="links">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#habilidades">Intereses</a>
+        <a href="#proyectos">Prácticas</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+  </header>
+  <main class="wrap">
+    <div class="hero" id="inicio">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Mi portafolio digital</div>
+        <h1>Hola, soy<br><span class="gradient">Kevin Zamorano.</span></h1>
+        <p class="lead">Estudiante de la Universidad Tecnológica de Panamá, con interés en la <strong style="color:var(--text)">ciberseguridad, las redes y la programación</strong>. Me gusta aprender resolviendo problemas reales.</p>
+        <div class="actions">
+          <a class="btn primary" href="#proyectos">Explorar mis prácticas <span aria-hidden="true">↗</span></a>
+          <a class="btn secondary" href="#sobre-mi">Conóceme más ↓</a>
+        </div>
+      </div>
+      <div class="terminal" aria-label="Presentación en estilo terminal">
+        <div class="terminal-head"><i></i><i></i><i></i><span>kevin@portafolio ~</span></div>
+        <div class="terminal-body">
+          <div><span class="cmd">$</span> whoami</div>
+          <div>Kevin Zamorano</div>
+          <div style="height:12px"></div>
+          <div><span class="cmd">$</span> cat perfil.txt</div>
+          <div><span class="key">Formación:</span> Estudiante UTP</div>
+          <div><span class="key">Intereses:</span> Seguridad, redes, código</div>
+          <div><span class="key">Actitud:</span> Aprender y mejorar</div>
+          <div style="height:12px"></div>
+          <div class="comment"># Cada desafío es una oportunidad.</div>
+          <div><span class="cmd">$</span> <span aria-hidden="true">▌</span></div>
+        </div>
+      </div>
+    </div>
+
+    <section id="sobre-mi" aria-labelledby="about-title">
+      <div class="kicker">01 / Mi perfil</div>
+      <h2 id="about-title">Sobre mí</h2>
+      <div class="about">
+        <div class="card">
+          <h3>Aprendizaje constante, curiosidad tecnológica.</h3>
+          <p>Soy estudiante universitario y estoy construyendo mis conocimientos en tecnología. Disfruto entender cómo funcionan los sistemas informáticos, cómo se conectan las redes y cómo se pueden proteger los datos.</p>
+          <p>Me interesa desarrollar habilidades prácticas por medio de laboratorios, ejercicios de programación y desafíos de ciberseguridad.</p>
+        </div>
+        <div class="card facts">
+          <div class="fact"><div class="fact-icon" aria-hidden="true">⌘</div><div><b>Universidad</b><small>Universidad Tecnológica de Panamá (UTP)</small></div></div>
+          <div class="fact"><div class="fact-icon" aria-hidden="true">⌁</div><div><b>Ubicación</b><small>Panamá</small></div></div>
+          <div class="fact"><div class="fact-icon" aria-hidden="true">✦</div><div><b>Objetivo</b><small>Seguir creciendo en tecnología y seguridad informática</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="habilidades" aria-labelledby="skills-title">
+      <div class="kicker">02 / Campos de interés</div>
+      <h2 id="skills-title">Lo que estoy aprendiendo</h2>
+      <p class="intro">Estas son algunas de las áreas en las que estoy desarrollando mis conocimientos y practicando nuevas habilidades.</p>
+      <div class="stack">
+        <article class="card"><span class="icon" aria-hidden="true">🛡️</span><h3>Ciberseguridad</h3><p>Conceptos de seguridad informática, análisis básico de incidentes y retos Capture The Flag.</p><div class="tags"><span>CTF</span><span>Linux</span><span>Seguridad</span></div></article>
+        <article class="card"><span class="icon" aria-hidden="true">🌐</span><h3>Redes</h3><p>Direcciones IP, protocolos de comunicación, servicios de red y ejercicios de configuración.</p><div class="tags"><span>TCP/IP</span><span>DNS</span><span>Packet Tracer</span></div></article>
+        <article class="card"><span class="icon" aria-hidden="true">💻</span><h3>Programación</h3><p>Fundamentos de lógica, estructuras de datos, resolución de problemas y desarrollo de programas.</p><div class="tags"><span>Java</span><span>C/C++</span><span>Python</span></div></article>
+      </div>
+    </section>
+
+    <section id="proyectos" aria-labelledby="project-title">
+      <div class="kicker">03 / Experiencia de aprendizaje</div>
+      <h2 id="project-title">Prácticas y actividades académicas</h2>
+      <p class="intro">Una muestra de los temas y ejercicios en los que he trabajado durante mi formación.</p>
+      <div class="projects">
+        <article class="card"><div class="project-num">PRÁCTICA 01</div><h3>Laboratorios de redes</h3><p>Ejercicios educativos con Cisco Packet Tracer para comprender la comunicación entre equipos y los servicios de red.</p><span class="project-type">Redes · Simulación</span></article>
+        <article class="card"><div class="project-num">PRÁCTICA 02</div><h3>Ejercicios de programación</h3><p>Actividades universitarias de lógica, arreglos y estructuras de datos para fortalecer la resolución de problemas.</p><span class="project-type">Programación · Algoritmos</span></article>
+        <article class="card"><div class="project-num">PRÁCTICA 03</div><h3>Retos de ciberseguridad</h3><p>Participación en ejercicios CTF educativos para practicar análisis de registros, redes y criptografía básica.</p><span class="project-type">Seguridad · Aprendizaje</span></article>
+      </div>
+    </section>
+
+    <section id="contacto" aria-labelledby="contact-title">
+      <div class="kicker">04 / Siguiente paso</div>
+      <h2 id="contact-title">Sigamos aprendiendo</h2>
+      <div class="callout"><div><h3>La tecnología siempre tiene algo nuevo que enseñar.</h3><p>Este portafolio representa mis intereses y mi crecimiento como estudiante.</p></div><a class="btn primary" href="#inicio">Volver al inicio ↑</a></div>
+    </section>
+  </main>
+  <footer class="wrap"><span class="footer-name">Kevin Zamorano · Portafolio digital</span><span>Hecho con HTML y CSS · 2026</span></footer>
+</body>
+</html>
